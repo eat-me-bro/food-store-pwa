@@ -1,0 +1,38 @@
+main {
+    margin: 0;
+    padding: 0;
+    padding: 10vh 40px 10px 40px;
+}
+
+h1 {   
+    font-size: 5.2vh;
+    color: #000;
+    font-weight: bold;
+    text-shadow: 1px 5px 10px #fff;
+    padding-bottom: 12px;
+}
+
+p {    
+    font-size: 4.2vh;
+    font-weight: bold;
+    text-shadow: 1px 5px 10px #fff;
+    padding-bottom: 42px;
+}
+
+#helpBox {
+    opacity: 0;
+}
+
+span {   
+    font-size: 3.2vh;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 5px 10px #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.txt-left {
+    width: 100%;
+    text-align: center;
+}

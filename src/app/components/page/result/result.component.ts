@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { GsapService } from 'src/app/services/gsap.service';
 
 @Component({
-  selector: 'app-help',
-  templateUrl: './help.component.html',
-  styleUrls: ['./help.component.scss']
+  selector: 'app-result',
+  templateUrl: './result.component.html',
+  styleUrls: ['./result.component.scss']
 })
-export class HelpComponent implements OnInit {
+export class ResultComponent implements OnInit {
 
   constructor(private gsapService: GsapService, private router: Router) { }
 
@@ -16,12 +16,18 @@ export class HelpComponent implements OnInit {
   }
 
   async animate() {
-    await this.gsapService.fade('#helpBox', false)
+    this.playDing()
+    await this.gsapService.fade('#food-store-results', false)    
+  }
+
+  playDing(): void {
+    let audio = document.createElement("audio");
+    audio.src = 'assets/sound/mario.wav'
+    audio.play()
   }
 
   routeHome(): void {
     this.router.navigate(['/']);
   }
-
 
 }

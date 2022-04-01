@@ -1,0 +1,41 @@
+main {
+    margin: 1vh 30px 40px 30px;
+    padding: 10vh 40px 10px 40px;
+    text-align: center;
+}
+
+h1 {
+    color: #000;
+    font-size: 7vh;    
+    font-weight: bold;
+    text-shadow: 1px 5px 10px #fff;
+    padding-bottom: 12px;
+}
+
+p, span {
+    color: #fff;
+    font-size: 3.4vh;
+    font-weight: bold;
+    text-shadow: 1px 5px 10px #000;
+}
+
+ul {
+    color: #000;
+    padding-left: 30px;
+    padding-bottom: 30px;;
+}
+
+li {
+    font-size: 8.8vh;
+    text-shadow: 1px 5px 10px #fff;
+    list-style-type:none;
+}
+
+#food-store-results {
+    opacity: 0;
+}
+
+span {
+    text-decoration: none;
+    cursor: pointer;
+}

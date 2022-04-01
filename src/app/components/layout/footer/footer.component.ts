@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { GsapService } from 'src/app/services/gsap.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private gsapService: GsapService,private elementRef: ElementRef, private router: Router) { }
 
   ngOnInit(): void {
+    this.animate()
+  }
+
+  async animate() {
+    
+  }
+
+  routeHelp(): void {
+    this.router.navigate(['/help']);
+  }
+
+  playMiau(): void {
+    let audio = document.createElement("audio");
+    audio.src = 'assets/sound/catmeow.wav'
+    audio.play()
+    setTimeout(()=> {
+      this.router.navigate(['/help']);
+    }, 700)
   }
 
 }

@@ -6,8 +6,99 @@ import { gsap, Power2 } from 'gsap';
 })
 export class GsapService {
 
+  private squidToggle: boolean = false
+
   constructor() { }
 
+  public updateToggle(_toggle: boolean): void {
+    this.squidToggle = _toggle
+  }
+
+  public fade(_item: string, _fadeOut: boolean) {
+    let _opacity: number = 1
+    if (_fadeOut) {
+      _opacity = 0
+    }
+    return new Promise(resolve => {
+      let fade = gsap.timeline({ paused: true, defaults: { duration: 0.2 } })
+      .to(_item,  { opacity: _opacity })
+
+      setTimeout(()=> {
+        fade.restart();
+        resolve(true)
+      }, 100)
+
+    })
+  }
+ 
+  public squidAnimation(e: any, _imgSrc: string): any {
+
+    return new Promise(resolve => {
+
+      let rotateSquid: any = gsap.to("#squid", {
+        rotation: 360, 
+        duration: 1.3,
+        ease: 'elastic',
+        repeat: -1,
+        paused: true,
+      }).timeScale(1);
+
+      // let tween = gsap.fromTo("#squid", {opacity: 1}, {opacity: 0, duration: 1, ease: "elastic", paused: true});
+
+      e.addEventListener('click', () => {
+
+        window.navigator.vibrate([200,30,150,25,100,20,40]);
+        
+        let _timeScale: number
+
+        if (!this.squidToggle) {
+          this.squidToggle = true
+            
+          rotateSquid.play();
+          gsap.to(rotateSquid, { timeScale: 1, duration: 1 });
+                   
+          
+          setTimeout(()=> {
+            gsap.to(rotateSquid, { timeScale: 0, duration: 0 });            
+            resolve(true)
+          }, 1300)
+          
+        }
+        
+  
+          // Change Image Source
+        // gsap.to(e, { 
+        //   attr: { src: _imgSrc },
+        //   ease: Power2.easeIn
+        // }).timeScale(1);
+        // gsap.fromTo("#squid", {opacity: 0}, {opacity: 1, duration: 2});
+
+        // let _timeScale: number
+            
+        // if (this.squidToggle) {
+        //   // Stop Animation
+        //   _timeScale = 0  
+    
+        // } else {
+        //   // Start Animation
+        //   _timeScale = 1        
+          
+        // }
+        // this.squidToggle = !this.squidToggle
+        // rotateSquid.play();
+        // gsap.to(rotateSquid, { timeScale: _timeScale, duration: 3 });
+
+      })
+
+    })
+    
+  }
+
+  /**
+   * ROTATE ITEM
+   * @param _play 
+   * @param _pause 
+   */
   public rotateItem(_play: any, _pause: any): void {
     
     let pauseTween: any
@@ -54,35 +145,15 @@ export class GsapService {
       });
 
     });
+  };
 
-    // _pause.onclick = () => {
-    //   gsap.to(rotateCD, {
-    //     timeScale: 0, 
-    //     duration: 3
-    //   });
-    // };
-    
-    // pauseTween && pauseTween.kill();
-    // if (audio.paused) gsap.set(audio, { volume: 0, playbackRate: 0.5 });  
-    // gsap.to(audio,  { volume: 1, playbackRate: 1, duration:3 });
-    // audio.play();
-};
-
-// pause.onclick = function() {
-//   gsap.to(rotateCD, { timeScale: 0, duration:3, onComplete: function() { this.pause(); }});
-  
-//   pauseTween && pauseTween.kill();
-//   pauseTween = gsap.to(audio, { 
-//     volume: 0, 
-//     playbackRate: 0.5, 
-//     duration:3,
-//     onComplete: audio.pause, 
-//     callbackScope: audio 
-//   });
-// };
-  
+  /**
+   * MENUE BAR ANIMATION
+   * @param e 
+   */
   public menuBarAnimation(e: any): void {
-    let menuBar = gsap.timeline({ paused: true});
+    let menuBar = gsap.timeline({ paused: true });
+
 
     menuBar.to('.bar-1', 0.5, {
       attr:{d: "M8,2 L2,8"},

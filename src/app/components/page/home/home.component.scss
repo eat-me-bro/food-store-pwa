@@ -1,49 +1,35 @@
 main {
-    margin: 0;
-    padding: 0;
+    margin: 10vh 30px 40px 30px;
+    padding: 10vh 40px 10px 40px;
+    min-height: 72vh;
     text-align: center;
-    z-index: -5;
 }
 
-.main-box {
-    width: 353px;
-    padding: 10px;
-    border: 5px dotted #fff;
-    position: absolute;
-    top: 30%;
-    left:50%;
-    transform: translate(-50%,30%);
+h1 {    
+    font-weight: bold;
+    text-shadow: 1px 5px 10px #fff;
+    margin-top: 15px;
+}
+
+p {
+    color: #fff;
+    font-size: 2.4vh;
+    font-weight: bold;
     text-shadow: 1px 5px 10px #000;
 }
 
-.main-box button {
-    display: inline-block;
-    padding: 24px 32px;
-    border: 0;
-    text-decoration: none;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0);
-    border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(30px);
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 2vh;
-    letter-spacing: 2px;
-    cursor: pointer;
-    text-transform: uppercase;
+#squid, #eggs {
+    z-index: -99;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    
+    z-index: -99;
 }
 
-.main-box button:hover {
-   background-color: rgba(255,255,255,0.2);
- }
-
-#container {
-    margin: 10px;
-    width: 100%;
-    height: 60px;
+img {
+    border-radius: 150px;
+    height: 150px;    
+    z-index: -99;
 }
-#creature {
-    background: url(https://www.greensock.com/_img/codepen/bezierCreature/creature_red.png);
-    background-size: auto;
-    width: 27px;
-    height: 29px;
+
+#squidBox {
+    opacity: 0;
 }

@@ -6,9 +6,23 @@
     box-sizing: border-box;
 }
 body {
-    font-family: "Reenie Beanie", sans-serif;
-    background: #000;
-    color: #fff;
-    background: url("assets/img/clouds.png") no-repeat top center;
-    background-size: auto;
+    font-family: "Reenie Beanie", sans-serif;    
+    background: url(assets/img/clouds.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    animation: gradient 110s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }

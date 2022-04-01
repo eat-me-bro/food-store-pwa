@@ -9,6 +9,7 @@ import { HomeComponent } from './components/page/home/home.component';
 import { ErrorComponent } from './components/page/error/error.component';
 import { HelpComponent } from './components/page/help/help.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ResultComponent } from './components/page/result/result.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     HomeComponent,
     ErrorComponent,
-    HelpComponent
+    HelpComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
