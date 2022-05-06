@@ -1,0 +1,103 @@
+{
+  "configVersion": 1,
+  "timestamp": 1651852556566,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.12fcee0d09d8a1f7.js",
+        "/manifest.webmanifest",
+        "/polyfills.808657b6b1cd97ed.js",
+        "/runtime.283a28f437a055bf.js",
+        "/styles.3d96eb1e95f4e14d.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/img/background.jpg",
+        "/assets/img/cat_logo.png",
+        "/assets/img/clouds.png",
+        "/assets/img/eggs.gif",
+        "/assets/img/squid.gif",
+        "/assets/js/helper.js",
+        "/assets/sound/catmeow.wav",
+        "/assets/sound/fail.mp3",
+        "/assets/sound/mario.wav",
+        "/assets/sound/okay.mp3",
+        "/clouds.8213cb2f93fce830.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/img/background.jpg": "1f64d4fa53f2a6673b98e27fa297519a5417b422",
+    "/assets/img/cat_logo.png": "dc8081caa1e84bc26d3ad24a19e42ded1426b4f6",
+    "/assets/img/clouds.png": "249a39f9ad9851960050dbb7d4b05f14be258552",
+    "/assets/img/eggs.gif": "5cff0717580ee547bb9cadbaee39b6ce4b305fc6",
+    "/assets/img/squid.gif": "36802c5c54b50dca35359334da45d1661090be5c",
+    "/assets/js/helper.js": "b25a4c0f581067f781f45797e43c852e4cde9153",
+    "/assets/sound/catmeow.wav": "fb1eadd9563c48dd6fd9e10f8255719fb706f92f",
+    "/assets/sound/fail.mp3": "02aa15db942fa8bdad5aca3a9ca66cc84b341333",
+    "/assets/sound/mario.wav": "b84d0add30fed4e7af212fc2e9b622cd31a6aed7",
+    "/assets/sound/okay.mp3": "9ffb92b3c770d97a4fd0d7018c6dd681f820b07e",
+    "/clouds.8213cb2f93fce830.png": "249a39f9ad9851960050dbb7d4b05f14be258552",
+    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/index.html": "26d84bd46d4c26ee2ea99fd0d019ee663872348b",
+    "/main.12fcee0d09d8a1f7.js": "a7aa4ab2c13d721ab611870883efbc2f07126676",
+    "/manifest.webmanifest": "b4eddf5567122f3aefc507445f1e388113c7733c",
+    "/polyfills.808657b6b1cd97ed.js": "f0de344e0eb2328dc2d02353f440bf690a419218",
+    "/runtime.283a28f437a055bf.js": "2d7df96417ca984bb002dd2d5941750eb6cc6c91",
+    "/styles.3d96eb1e95f4e14d.css": "fb139379ca44296ef1e199932ff119538c18660c"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
