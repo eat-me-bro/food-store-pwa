@@ -2,9 +2,13 @@
     <div id="food-store-results">
         <h1>{{resultTitle}}</h1>
         <ul>
-            <!-- https://www.google.com/maps/search/?api=1&query=<lat>,<lng> -->
-            <li *ngFor="let item of fsList">                
+            <!-- https://www.google.com/maps/search/?api=1&query=<lat>,<lng>
+                https://www.google.com/maps/search/?api=1&query=<address>&query_place_id=<placeId>
                 <a href="https://www.google.com/maps/place/?q=place_id:{{ item.placeId }}">{{ item.foodStore }}</a> 
+            -->
+
+            <li *ngFor="let item of fsList">
+                <a href="https://www.google.com/maps/search/?api=1&query={{ item.foodStore }}&query_place_id={{ item.placeId }}">{{ item.foodStore }}</a> 
             </li>
         </ul>
         <span (click)="routeHome()">{{resultLink}}</span>
