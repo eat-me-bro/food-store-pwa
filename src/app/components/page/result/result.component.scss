@@ -1,6 +1,6 @@
 main {
     margin: 1vh 30px 40px 30px;
-    padding: 10vh 40px 10px 40px;
+    padding: 6vh 40px 10px 40px;
     text-align: center;
 }
 
@@ -21,14 +21,18 @@ p, span {
 
 ul {
     color: #000;
-    padding-left: 30px;
     padding-bottom: 30px;;
 }
 
 li {
-    font-size: 8.8vh;
+    font-size: 3.2vh;
     text-shadow: 1px 5px 10px #fff;
     list-style-type:none;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 44px;
+    background-color: rgb(196, 228, 255);
+    opacity: 0.8;
 }
 
 #food-store-results {
@@ -38,4 +42,10 @@ li {
 span {
     text-decoration: none;
     cursor: pointer;
+}
+
+#food-store-results a {
+    color:rgb(19, 7, 87);    
+    text-decoration: none;
+    text-shadow: 1px 5px 10px #000;
 }

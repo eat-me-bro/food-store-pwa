@@ -1,12 +1,15 @@
-<main>
+<main>    
     <div id="food-store-results">
-        <h1>Here you go...</h1>
+        <h1>{{resultTitle}}</h1>
         <ul>
-            <li>Casino</li>
-            <li>Vapiano</li>
-            <li>Dori, Dori</li>
+            <!-- https://www.google.com/maps/search/?api=1&query=<lat>,<lng> -->
+            <li *ngFor="let item of fsList">                
+                <a href="https://www.google.com/maps/place/?q=place_id:{{ item.placeId }}">{{ item.foodStore }}</a> 
+            </li>
         </ul>
-
-        <span (click)="routeHome()"><-- 🤔 no,no... please again</span>
-    </div>
+        <span (click)="routeHome()">{{resultLink}}</span>
+    </div>   
 </main>
+
+<audio id="aud_okay" src="assets/sound/okay.mp3"></audio>
+<audio id="aud_fail" src="assets/sound/fail.mp3"></audio>

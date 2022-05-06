@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FoodStore } from 'src/app/models/food-store';
 import { GsapService } from 'src/app/services/gsap.service';
 
 @Component({
@@ -9,20 +10,60 @@ import { GsapService } from 'src/app/services/gsap.service';
 })
 export class ResultComponent implements OnInit {
 
-  constructor(private gsapService: GsapService, private router: Router) { }
+  fsList: FoodStore[] | undefined
+  resultTitle: string | undefined
+  resultLink: string | undefined
+
+  constructor(private gsapService: GsapService, private elementRef: ElementRef, private router: Router) { }
 
   ngOnInit(): void {
-    this.animate()
+    this.displayResult()
   }
 
-  async animate() {
-    this.playDing()
-    await this.gsapService.fade('#food-store-results', false)    
+  async displayResult() {
+
+    // Read food stores from local storage
+    let jsonData: any
+    setTimeout(() => {
+      jsonData = localStorage.getItem("fsList")
+      localStorage.removeItem("fsList")
+
+      if (jsonData) {
+        localStorage.removeItem("fsList")
+        
+        let fsList: FoodStore[] = JSON.parse(jsonData)
+        this.fsList = JSON.parse(jsonData)
+
+        this.animateResult(true)
+        
+      } else {        
+        this.animateResult(false)
+
+      }
+
+    }, 100)
+        
   }
 
-  playDing(): void {
-    let audio = document.createElement("audio");
-    audio.src = 'assets/sound/mario.wav'
+  async animateResult(_okay:boolean) {
+    
+    if (_okay) {
+      this.resultTitle = 'Here you go...'
+      this.resultLink = '<-- 🤔 no,no... again'
+      this.playAudio('okay')
+      
+    } else {
+      this.resultTitle = 'Nothing found'
+      this.resultLink = '<-- 😑 try again'
+      this.playAudio('fail')
+    }
+
+    await this.gsapService.fade('#food-store-results', false)
+    
+  }
+
+  playAudio(_audID: string): void {
+    const audio = this.elementRef.nativeElement.querySelector(`#aud_${_audID}`);
     audio.play()
   }
 
