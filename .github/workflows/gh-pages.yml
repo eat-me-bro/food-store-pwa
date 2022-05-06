@@ -20,7 +20,7 @@ jobs:
       - name: Build App
         run: npm run build --prod
       - name: create gh-pages
-        run: mv dist/ gh-pages/
+        run: mv dist/food-store-pwa gh-pages/
 
       - name: Deploy App
         uses: peaceiris/actions-gh-pages@v3
