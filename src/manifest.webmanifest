@@ -1,6 +1,6 @@
 {
-  "name": "food-store-pwa",
-  "short_name": "food-store-pwa",
+  "name": "eatme.app",
+  "short_name": "eatme.app",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
@@ -411,7 +411,7 @@
     },
     {
       "src": "assets/icons/windows11/Square44x44Logo.altform-lightunplated_targetsize-24.png",
-      "sizes": "24x24"
+      "sizes": "24x24",
       "type": "image/png",
       "purpose": "maskable any"
     },
