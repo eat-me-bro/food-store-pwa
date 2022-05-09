@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: "16.x"
       - name: Install node dependencies
-        run: npm install
+        run: npm install --loglevel=error
       - name: Build App
         run: npm run build --prod
       - name: create gh-pages
