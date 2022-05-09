@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FoodStore } from 'src/app/models/food-store';
-import { GsapService } from 'src/app/services/gsap.service';
 
 @Component({
   selector: 'app-result',
@@ -14,7 +13,7 @@ export class ResultComponent implements OnInit {
   resultTitle: string | undefined
   resultLink: string | undefined
 
-  constructor(private gsapService: GsapService, private elementRef: ElementRef, private router: Router) { }
+  constructor(private elementRef: ElementRef, private router: Router) { }
 
   ngOnInit(): void {
     this.displayResult()
@@ -58,7 +57,7 @@ export class ResultComponent implements OnInit {
       this.playAudio('fail')
     }
 
-    await this.gsapService.fade('#food-store-results', false)
+    //await this.gsapService.fade('#food-store-results', false)
     
   }
 

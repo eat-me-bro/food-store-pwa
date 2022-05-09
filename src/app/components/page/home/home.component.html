@@ -1,6 +1,8 @@
 <main>
-    <div id="squidBox">
-        <img id="squid" src="assets/img/squid.gif" />    
+    <div id="squidBox1" class="animate__animated animate__fadeInDown">
+        <a href="javascript:void(0)">
+            <img id="squid" [ngClass]="[squidStyle]" (click)="doSearch()" class="animate__animated animate__pulse animate__infinite" src="assets/img/squid.gif" />
+        </a>
         <h1 id="squid_slogan">squeeze the squid</h1>
     </div>
 </main>

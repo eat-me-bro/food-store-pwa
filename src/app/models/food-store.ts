@@ -1,5 +1,3 @@
-import { FoodStoreLocation } from "./food-store-location"
-
 export class FoodStore {
     long: number | undefined
     lat: number | undefined

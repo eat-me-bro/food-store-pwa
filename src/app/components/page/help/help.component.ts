@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GsapService } from 'src/app/services/gsap.service';
 
 @Component({
   selector: 'app-help',
@@ -9,14 +8,16 @@ import { GsapService } from 'src/app/services/gsap.service';
 })
 export class HelpComponent implements OnInit {
 
-  constructor(private gsapService: GsapService, private router: Router) { }
+  constructor(private router: Router, private elementRef: ElementRef, ) { }
 
   ngOnInit(): void {
     this.animate()
   }
 
   async animate() {
-    await this.gsapService.fade('#helpBox', false)
+    const helpBox = this.elementRef.nativeElement.querySelector('#helpBox');
+    helpBox.className = "animate__animated animate__fadeIn"
+    //await this.gsapService.fade('#helpBox', false)
   }
 
   routeHome(): void {

@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GsapService } from 'src/app/services/gsap.service';
 
 @Component({
   selector: 'app-footer',
@@ -9,7 +8,7 @@ import { GsapService } from 'src/app/services/gsap.service';
 })
 export class FooterComponent implements OnInit {
 
-  constructor(private gsapService: GsapService,private elementRef: ElementRef, private router: Router) { }
+  constructor(private elementRef: ElementRef, private router: Router) { }
 
   ngOnInit(): void {
     this.animate()
