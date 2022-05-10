@@ -21,17 +21,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     // Clear session storage
     localStorage.removeItem('fsList')
+
   }
 
   async doSearch() {
     console.log("GO, Go, go...");
-    this.squidStyle = 'animate__flip';
 
-    window.navigator.vibrate([200,30,150,25,100,20,40]);
-
-    const squidSlogan = this.elementRef.nativeElement.querySelector('#squid_slogan');
-    squidSlogan.className = "animate__animated animate__fadeIn"
-    squidSlogan.innerText = "searching..."
+    //window.navigator.vibrate([200,30,150,25,100,20,40]);    
 
     //startRequest
     await this.startRequest()
@@ -43,26 +39,44 @@ export class HomeComponent implements OnInit {
     const squid = this.elementRef.nativeElement.querySelector('#squid');
     const squidSlogan = this.elementRef.nativeElement.querySelector('#squid_slogan');
    
-    let fsData: FoodStore = await this.getGeoLocation()
-    
-    // Get all food stores
-    this.fss.getFoodStores(fsData).subscribe(data => {
+    try {
+
+      this.squidStyle = 'animate__flip';
+
+      squidSlogan.className = "animate__animated animate__fadeIn"
+      squidSlogan.innerText = "location check..."
       
-      let fsList: FoodStore[] = data;
+      let fsData: FoodStore = await this.getGeoLocation()
 
-      // Set food stores into local storage
-      localStorage.setItem('fsList', JSON.stringify(fsList));
-            
-      // Display results
-      console.log(fsList);
+      // Get all food stores
+      this.fss.getFoodStores(fsData).subscribe(data => {
 
-      squidSlogan.className = "animate__animated animate__fadeOut";
-      squid.className = squidSlogan.className;
+        squidSlogan.className = "animate__animated animate__fadeIn"
+        squidSlogan.innerText = "searching..."
+        
+        let fsList: FoodStore[] = data;
 
-      console.log("DONE");
-      this.router.navigate(['/result']);
+        // Set food stores into local storage
+        localStorage.setItem('fsList', JSON.stringify(fsList));
+              
+        // Display results
+        console.log(fsList);
 
-    })
+        squidSlogan.className = "animate__animated animate__fadeOut";
+        squid.className = squidSlogan.className;
+
+        console.log("DONE");
+        this.router.navigate(['/result']);
+
+      })
+
+    } catch (error) {
+      squidSlogan.className = "animate__animated animate__fadeIn"
+      squidSlogan.innerText = "please enable GPS..."
+      this.squidStyle = "animate__pulse animate__infinite"
+      this.playAudio('fail')
+    }
+    
     
   }
 
@@ -78,7 +92,7 @@ export class HomeComponent implements OnInit {
       placeId: undefined,
       mapsUrl: undefined
     }
-
+    // Check GeoLocation Approvel
     return new Promise((resolve, reject) => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(res => {
@@ -86,11 +100,18 @@ export class HomeComponent implements OnInit {
           fsData.lat = res.coords.latitude
           console.log("DONE...");
           resolve(fsData)  
-        })
+        }, err => {
+          reject("No GSP Data")
+        }, { enableHighAccuracy: true })
       } else {
         reject("No GSP Data")
       }
     })
+  }
+
+  playAudio(_audID: string): void {
+    const audio = this.elementRef.nativeElement.querySelector(`#aud_${_audID}`);
+    audio.play()
   }
 
 }
