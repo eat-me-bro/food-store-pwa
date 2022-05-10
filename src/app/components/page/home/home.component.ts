@@ -27,11 +27,10 @@ export class HomeComponent implements OnInit {
   async doSearch() {
     console.log("GO, Go, go...");
 
-    //window.navigator.vibrate([200,30,150,25,100,20,40]);    
+    this.playAudio('sparkle')
 
     //startRequest
     await this.startRequest()
-
   }
   
   async startRequest() {
@@ -71,10 +70,10 @@ export class HomeComponent implements OnInit {
       })
 
     } catch (error) {
+      this.playAudio('fail')
       squidSlogan.className = "animate__animated animate__fadeIn"
       squidSlogan.innerText = "please enable GPS..."
       this.squidStyle = "animate__pulse animate__infinite"
-      this.playAudio('fail')
     }
     
     
@@ -109,8 +108,9 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  playAudio(_audID: string): void {
-    const audio = this.elementRef.nativeElement.querySelector(`#aud_${_audID}`);
+  playAudio(wav_file: string): void {
+    let audio = document.createElement("audio");
+    audio.src = `assets/sound/${wav_file}.wav`
     audio.play()
   }
 

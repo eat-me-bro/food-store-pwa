@@ -28,7 +28,7 @@ export class FooterComponent implements OnInit {
     audio.play()
     setTimeout(()=> {
       this.router.navigate(['/help']);
-    }, 700)
+    }, 400)
   }
 
 }
