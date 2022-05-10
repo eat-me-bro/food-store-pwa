@@ -1,6 +1,6 @@
 {
-  "name": "eatme.app",
-  "short_name": "eatme.app",
+  "name": "etme | Food Location Finder",
+  "short_name": "etme",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
