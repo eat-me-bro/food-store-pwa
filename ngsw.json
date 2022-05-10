@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1652192026128,
+  "timestamp": 1652194280049,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.dead0f32be697233.js",
+        "/main.0e98bd013a736f7f.js",
         "/manifest.webmanifest",
         "/polyfills.808657b6b1cd97ed.js",
         "/runtime.283a28f437a055bf.js",
@@ -156,9 +156,9 @@
         "/assets/img/squid.gif",
         "/assets/js/helper.js",
         "/assets/sound/catmeow.wav",
-        "/assets/sound/fail.mp3",
-        "/assets/sound/mario.wav",
-        "/assets/sound/okay.mp3",
+        "/assets/sound/fail.wav",
+        "/assets/sound/okay.wav",
+        "/assets/sound/sparkle.wav",
         "/clouds.8213cb2f93fce830.png"
       ],
       "patterns": []
@@ -293,13 +293,13 @@
     "/assets/img/squid.gif": "36802c5c54b50dca35359334da45d1661090be5c",
     "/assets/js/helper.js": "b25a4c0f581067f781f45797e43c852e4cde9153",
     "/assets/sound/catmeow.wav": "fb1eadd9563c48dd6fd9e10f8255719fb706f92f",
-    "/assets/sound/fail.mp3": "02aa15db942fa8bdad5aca3a9ca66cc84b341333",
-    "/assets/sound/mario.wav": "b84d0add30fed4e7af212fc2e9b622cd31a6aed7",
-    "/assets/sound/okay.mp3": "9ffb92b3c770d97a4fd0d7018c6dd681f820b07e",
+    "/assets/sound/fail.wav": "93f416fae642c6f70fe17c2c5b7c135d6eb9f5b1",
+    "/assets/sound/okay.wav": "caee829315c693fc07c88bf6c52ed095a9e9b3d1",
+    "/assets/sound/sparkle.wav": "d31efb2febbe7ea9ba85eb5c15f60ebc4096c46a",
     "/clouds.8213cb2f93fce830.png": "249a39f9ad9851960050dbb7d4b05f14be258552",
     "/favicon.ico": "2082c38b5eb30799328555fea1d91198f93a29e7",
-    "/index.html": "8ac487bea6c4e8c193d7f0b903eca22829b8f0aa",
-    "/main.dead0f32be697233.js": "fb664105c55f2234908f8e2cdf654c5d4c656735",
+    "/index.html": "d53bacbb6cfc0511da3ee382ced365c929900a5c",
+    "/main.0e98bd013a736f7f.js": "caf1f90b04dc436964d79c9eb6c9c34c145d24f1",
     "/manifest.webmanifest": "afff9f80ae585a9cb6f46e12083d2c0ef2132e85",
     "/polyfills.808657b6b1cd97ed.js": "f0de344e0eb2328dc2d02353f440bf690a419218",
     "/runtime.283a28f437a055bf.js": "2d7df96417ca984bb002dd2d5941750eb6cc6c91",
