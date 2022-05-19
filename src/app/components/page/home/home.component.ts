@@ -100,7 +100,7 @@ export class HomeComponent implements OnInit {
 
     return new Promise(async (resolve, reject) => {      
       try {
-        this.http.get("http://api.ipify.org/?format=json").subscribe( (res: any) => {
+        this.http.get("https://api.ipify.org/?format=json").subscribe( (res: any) => {
           fsData.userip4 = res.ip 
           console.log("USERIP4 : ", fsData.userip4);
           this.fss.getLocationOverIP(fsData).subscribe(data => { resolve(data) }) 
