@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FoodStore } from 'src/app/models/food-store';
+import { HttpClient  } from '@angular/common/http';
 import { FoodStoreService } from 'src/app/services/food-store.service';
 
 
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private elementRef: ElementRef, 
     private router: Router,
+    private http: HttpClient,
     private fss: FoodStoreService) { }
 
   ngOnInit(): void {
@@ -98,9 +100,8 @@ export class HomeComponent implements OnInit {
 
     return new Promise(async (resolve, reject) => {      
       try {
-        await fetch("https://checkip.amazonaws.com/").then(res => res.text()).then(data => {         
-          // Try to get geolocation over IP4
-          fsData.userip4 = data;
+        this.http.get("http://api.ipify.org/?format=json").subscribe( (res: any) => {
+          fsData.userip4 = res.ip 
           console.log("USERIP4 : ", fsData.userip4);
           this.fss.getLocationOverIP(fsData).subscribe(data => { resolve(data) }) 
         })
