@@ -63,7 +63,9 @@ export class ResultComponent implements OnInit {
 
   playAudio(_audID: string): void {
     const audio = this.elementRef.nativeElement.querySelector(`#aud_${_audID}`);
-    audio.play()
+    try {     
+      audio.play() 
+    } catch (error) { }
   }
 
   routeHome(): void {

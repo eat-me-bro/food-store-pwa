@@ -2,11 +2,6 @@
     <div id="food-store-results" class="animate__animated animate__fadeIn">
         <h1>{{resultTitle}}</h1>
         <ul>
-            <!-- https://www.google.com/maps/search/?api=1&query=<lat>,<lng>
-                https://www.google.com/maps/search/?api=1&query=<address>&query_place_id=<placeId>
-                <a href="https://www.google.com/maps/place/?q=place_id:{{ item.placeId }}">{{ item.foodStore }}</a> 
-            -->
-
             <li *ngFor="let item of fsList">
                 <a href="https://www.google.com/maps/search/?api=1&query={{ item.foodStore }}&query_place_id={{ item.placeId }}">{{ item.foodStore }}</a> 
             </li>
@@ -14,6 +9,3 @@
         <span (click)="routeHome()">{{resultLink}}</span>
     </div>   
 </main>
-
-<audio id="aud_okay" src="assets/sound/okay.mp3"></audio>
-<audio id="aud_fail" src="assets/sound/fail.mp3"></audio>

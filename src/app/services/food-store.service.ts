@@ -24,4 +24,10 @@ export class FoodStoreService {
     return this.http.post<FoodStore[]>(apiRoute, fsData, { headers: this.apiHeader() })    
   }
 
+  getLocationOverIP(fsData: FoodStore): Observable<FoodStore> {
+    let apiRoute: string = `${apiHost.dns}/location`
+    console.log("API ROUT :", apiRoute);
+    return this.http.post<FoodStore>(apiRoute, fsData, { headers: this.apiHeader() })  
+  }
+
 }

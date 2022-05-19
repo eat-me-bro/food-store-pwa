@@ -26,9 +26,7 @@ export class HomeComponent implements OnInit {
 
   async doSearch() {
     console.log("GO, Go, go...");
-
     this.playAudio('sparkle')
-
     //startRequest
     await this.startRequest()
   }
@@ -45,10 +43,19 @@ export class HomeComponent implements OnInit {
       squidSlogan.className = "animate__animated animate__fadeIn"
       squidSlogan.innerText = "location check..."
       
-      let fsData: FoodStore = await this.getGeoLocation()
+      let fsData: FoodStore = this.createFsDataStack()
+
+      try {
+        // Try to get geolocation over Web API
+        fsData = await this.getGeoLocation()  
+      } catch (error) {
+        console.log("GEO LOCATION WEB API FAILED. TRY OVER IP4...");
+        // Try to get geolocation over IP4
+        fsData = await this.getGeoLocationIP4()        
+      }     
 
       // Get all food stores
-      this.fss.getFoodStores(fsData).subscribe(data => {
+      await this.fss.getFoodStores(fsData).subscribe(data => {
 
         squidSlogan.className = "animate__animated animate__fadeIn"
         squidSlogan.innerText = "searching..."
@@ -71,26 +78,41 @@ export class HomeComponent implements OnInit {
 
     } catch (error) {
       this.playAudio('fail')
-      squidSlogan.className = "animate__animated animate__fadeIn"
-      squidSlogan.innerText = "please enable GPS..."
+
+      switch (error) {
+        case "NO GPS": squidSlogan.innerText = "please enable GPS..."; break;
+        case "IP4 NOT FOUND": squidSlogan.innerText = "no ip4 found..."; break;      
+        default: squidSlogan.innerText = ""; break;          
+      }
+
+      squidSlogan.className = "animate__animated animate__fadeIn"      
       this.squidStyle = "animate__pulse animate__infinite"
+      console.log(error);
     }
-    
-    
+        
+  }
+
+  async getGeoLocationIP4(): Promise<FoodStore> {
+    console.log("RETRIVE GEOLOCATION OVER IP4...");
+    let fsData: FoodStore = this.createFsDataStack()
+
+    return new Promise(async (resolve, reject) => {      
+      try {
+        await fetch("https://checkip.amazonaws.com/").then(res => res.text()).then(data => {         
+          // Try to get geolocation over IP4
+          fsData.userip4 = data;
+          console.log("USERIP4 : ", fsData.userip4);
+          this.fss.getLocationOverIP(fsData).subscribe(data => { resolve(data) }) 
+        })
+      } catch (error) {
+        reject("IP4 NOT FOUND")
+      }
+    })
   }
 
   async getGeoLocation(): Promise<FoodStore> {
     console.log("RETRIVE GEOLOCATION...");
-    let fsData: FoodStore = {
-      long: undefined,
-      lat: undefined,
-      id: undefined,
-      foodStore: undefined,
-      favorite: undefined,
-      lastVisite: undefined,
-      placeId: undefined,
-      mapsUrl: undefined
-    }
+    let fsData: FoodStore = this.createFsDataStack()
     // Check GeoLocation Approvel
     return new Promise((resolve, reject) => {
       if (navigator.geolocation) {
@@ -100,12 +122,26 @@ export class HomeComponent implements OnInit {
           console.log("DONE...");
           resolve(fsData)  
         }, err => {
-          reject("No GSP Data")
+          reject("NO GPS")
         }, { enableHighAccuracy: true })
       } else {
-        reject("No GSP Data")
+        reject("NO GPS")
       }
     })
+  }
+
+  createFsDataStack(): FoodStore {
+    return {
+      userip4: undefined,
+      long: undefined,
+      lat: undefined,
+      id: undefined,
+      foodStore: undefined,
+      favorite: undefined,
+      lastVisite: undefined,
+      placeId: undefined,
+      mapsUrl: undefined
+    }
   }
 
   playAudio(wav_file: string): void {

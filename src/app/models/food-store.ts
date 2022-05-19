@@ -1,4 +1,5 @@
 export class FoodStore {
+    userip4: string | undefined
     long: number | undefined
     lat: number | undefined
     id: number | undefined
