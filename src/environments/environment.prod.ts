@@ -3,5 +3,5 @@ export const environment = {
 };
 
 export const apiHost = {
-  dns: 'https://pwa-api.beta.de.com'
+  dns: 'https://api.etme.app'
 }
